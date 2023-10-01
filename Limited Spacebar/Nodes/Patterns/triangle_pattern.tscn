@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://bo525xt28o32j"]
+
+[ext_resource type="PackedScene" uid="uid://dnd7k4crilmp" path="res://Nodes/fade_in.tscn" id="1_f0gws"]
+[ext_resource type="Script" path="res://Nodes/Patterns/pattern.gd" id="1_ssk12"]
+
+[node name="TrianglePattern" type="Node2D"]
+script = ExtResource("1_ssk12")
+
+[node name="FadeIn" parent="." instance=ExtResource("1_f0gws")]
+position = Vector2(565, 535)
+rotation = 1.5708
+scale = Vector2(50, 300)
+waitTime = 1.0
+
+[node name="FadeIn2" parent="." instance=ExtResource("1_f0gws")]
+position = Vector2(778, 255)
+rotation = 2.59356
+scale = Vector2(50, 300)
+waitTime = 1.0
+
+[node name="FadeIn3" parent="." instance=ExtResource("1_f0gws")]
+position = Vector2(351, 255)
+rotation = -2.59273
+scale = Vector2(50, 300)
+waitTime = 1.0

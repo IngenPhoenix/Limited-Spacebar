@@ -1,0 +1,125 @@
+[gd_scene load_steps=20 format=3 uid="uid://b78durxw246qn"]
+
+[ext_resource type="Script" path="res://Scenes/map.gd" id="1_au4a8"]
+[ext_resource type="Texture2D" uid="uid://dcypytovgeu8s" path="res://Sprites/Square.png" id="1_seyk6"]
+[ext_resource type="PackedScene" uid="uid://chp3tcxw761a6" path="res://Nodes/Patterns/hastag_pattern.tscn" id="2_gcttv"]
+[ext_resource type="PackedScene" uid="uid://2sdjfp63irmu" path="res://Nodes/player.tscn" id="2_h0nuh"]
+[ext_resource type="PackedScene" uid="uid://d3y2orfl0gty7" path="res://Nodes/Patterns/walls_v.tscn" id="3_uc5wk"]
+[ext_resource type="PackedScene" uid="uid://c2fphl5wycur0" path="res://Nodes/Patterns/walls_h.tscn" id="4_7hg00"]
+[ext_resource type="PackedScene" uid="uid://bmk0cdhua6lfn" path="res://Nodes/Patterns/astericks_pattern.tscn" id="5_uhr6w"]
+[ext_resource type="PackedScene" uid="uid://dk607jdr56yro" path="res://Nodes/Patterns/diamond_pattern.tscn" id="6_b860o"]
+[ext_resource type="PackedScene" uid="uid://dd3d7ubveg6ll" path="res://Nodes/Patterns/lightning_pattern.tscn" id="7_fc1uj"]
+[ext_resource type="PackedScene" uid="uid://beqfnpfmwqm6g" path="res://Nodes/Patterns/square_pattern.tscn" id="8_6l05h"]
+[ext_resource type="PackedScene" uid="uid://bo525xt28o32j" path="res://Nodes/Patterns/triangle_pattern.tscn" id="9_6oy6h"]
+[ext_resource type="PackedScene" uid="uid://dx27r64oxsnet" path="res://Nodes/UI/GameUI/timer.tscn" id="12_o31th"]
+[ext_resource type="PackedScene" uid="uid://dvdk01k2ynidv" path="res://Nodes/UI/GameUI/upgrade_select.tscn" id="13_p3pnl"]
+[ext_resource type="PackedScene" uid="uid://cryuk6ee7t1qt" path="res://Nodes/UI/GameUI/display.tscn" id="14_kyo2v"]
+[ext_resource type="PackedScene" uid="uid://00evdqkpyabw" path="res://Nodes/UI/GameUI/game_over.tscn" id="16_4tfhb"]
+[ext_resource type="PackedScene" uid="uid://dn1wavgamlvwl" path="res://Nodes/point.tscn" id="16_tppf0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oxdka"]
+size = Vector2(792, 1656)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q7hl4"]
+size = Vector2(1342, 473.25)
+
+[sub_resource type="Environment" id="Environment_cdn1w"]
+background_mode = 3
+background_energy_multiplier = 16.0
+glow_enabled = true
+glow_intensity = 0.6
+glow_strength = 0.8
+glow_bloom = 0.15
+glow_blend_mode = 0
+glow_hdr_luminance_cap = 0.8
+
+[node name="Map" type="Node2D"]
+process_mode = 1
+script = ExtResource("1_au4a8")
+events = Array[PackedScene]([null, ExtResource("5_uhr6w"), ExtResource("6_b860o"), ExtResource("2_gcttv"), ExtResource("7_fc1uj"), ExtResource("8_6l05h"), ExtResource("9_6oy6h"), ExtResource("4_7hg00"), ExtResource("3_uc5wk")])
+
+[node name="Background" type="Sprite2D" parent="."]
+process_mode = 1
+modulate = Color(0.109804, 0.109804, 0.109804, 1)
+z_index = -1
+position = Vector2(575.75, 323.75)
+scale = Vector2(1326.5, 769.5)
+texture = ExtResource("1_seyk6")
+
+[node name="Player" parent="." instance=ExtResource("2_h0nuh")]
+process_mode = 1
+position = Vector2(755, 283)
+
+[node name="Borders" type="Node2D" parent="."]
+visible = false
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Borders"]
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/StaticBody2D"]
+position = Vector2(-394, 310)
+shape = SubResource("RectangleShape2D_oxdka")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="Borders"]
+position = Vector2(1174, 0)
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/StaticBody2D2"]
+position = Vector2(376, 302)
+shape = SubResource("RectangleShape2D_oxdka")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="Borders"]
+position = Vector2(700, -57)
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/StaticBody2D3"]
+position = Vector2(-127, -181)
+shape = SubResource("RectangleShape2D_q7hl4")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Borders/StaticBody2D3"]
+position = Vector2(-129, 944)
+shape = SubResource("RectangleShape2D_q7hl4")
+
+[node name="UpgradeSelect" parent="." instance=ExtResource("13_p3pnl")]
+visible = false
+offset_left = 314.0
+offset_right = 814.0
+offset_bottom = 500.0
+
+[node name="Display" parent="." instance=ExtResource("14_kyo2v")]
+
+[node name="Dash" parent="Display" index="0"]
+offset_left = 682.0
+offset_right = 910.0
+
+[node name="Health" parent="Display" index="1"]
+offset_top = 3.0
+offset_bottom = 73.0
+
+[node name="Score" parent="Display" index="2"]
+offset_left = 691.0
+offset_top = 52.0
+offset_right = 1097.0
+offset_bottom = 122.0
+theme_override_font_sizes/font_size = 32
+horizontal_alignment = 1
+vertical_alignment = 1
+text_direction = 1
+
+[node name="GameOver" parent="." instance=ExtResource("16_4tfhb")]
+visible = false
+offset_right = 1150.0
+offset_bottom = 650.0
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_cdn1w")
+
+[node name="Point" parent="." instance=ExtResource("16_tppf0")]
+position = Vector2(155, 158)
+
+[node name="Timer" parent="." instance=ExtResource("12_o31th")]
+
+[editable path="UpgradeSelect"]
+[editable path="Display"]

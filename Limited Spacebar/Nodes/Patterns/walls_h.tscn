@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://c2fphl5wycur0"]
+
+[ext_resource type="Script" path="res://Nodes/Patterns/pattern.gd" id="1_pvbsw"]
+[ext_resource type="PackedScene" uid="uid://dnd7k4crilmp" path="res://Nodes/fade_in.tscn" id="2_cttq0"]
+
+[node name="WallsV" type="Node2D"]
+rotation = 1.5708
+script = ExtResource("1_pvbsw")
+
+[node name="FadeIn" parent="." instance=ExtResource("2_cttq0")]
+position = Vector2(106, -702.068)
+waitTime = 1.0
+
+[node name="FadeIn2" parent="." instance=ExtResource("2_cttq0")]
+position = Vector2(340.67, -699.813)
+waitTime = 0.8
+
+[node name="FadeIn3" parent="." instance=ExtResource("2_cttq0")]
+position = Vector2(575.337, -702.614)
+waitTime = 0.7

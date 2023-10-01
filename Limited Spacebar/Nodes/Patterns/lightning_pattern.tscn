@@ -1,0 +1,68 @@
+[gd_scene load_steps=3 format=3 uid="uid://dd3d7ubveg6ll"]
+
+[ext_resource type="Script" path="res://Nodes/Patterns/pattern.gd" id="1_0d63v"]
+[ext_resource type="PackedScene" uid="uid://dnd7k4crilmp" path="res://Nodes/fade_in.tscn" id="1_7p0l1"]
+
+[node name="LightningPattern" type="Node2D"]
+position = Vector2(134, -15)
+script = ExtResource("1_0d63v")
+
+[node name="FadeIn" parent="." instance=ExtResource("1_7p0l1")]
+position = Vector2(-97, 152)
+rotation = 0.850997
+scale = Vector2(50, 150)
+waitTime = 1.0
+
+[node name="FadeIn2" parent="." instance=ExtResource("1_7p0l1")]
+position = Vector2(189, 157)
+rotation = -0.898009
+scale = Vector2(50, 150)
+waitTime = 0.9
+
+[node name="FadeIn3" parent="." instance=ExtResource("1_7p0l1")]
+position = Vector2(480, 144)
+rotation = 0.850997
+scale = Vector2(50, 150)
+waitTime = 0.8
+
+[node name="FadeIn4" parent="." instance=ExtResource("1_7p0l1")]
+position = Vector2(766, 149)
+rotation = -0.898009
+scale = Vector2(50, 150)
+waitTime = 0.7
+
+[node name="FadeIn5" parent="." instance=ExtResource("1_7p0l1")]
+position = Vector2(1057, 144)
+rotation = 0.850997
+scale = Vector2(50, 150)
+waitTime = 0.6
+
+[node name="FadeIn7" parent="." instance=ExtResource("1_7p0l1")]
+position = Vector2(-105, 541)
+rotation = -0.814593
+scale = Vector2(50, 150)
+waitTime = 1.0
+
+[node name="FadeIn8" parent="." instance=ExtResource("1_7p0l1")]
+position = Vector2(181, 546)
+rotation = -2.37955
+scale = Vector2(50, 150)
+waitTime = 0.9
+
+[node name="FadeIn9" parent="." instance=ExtResource("1_7p0l1")]
+position = Vector2(472, 533)
+rotation = -0.814593
+scale = Vector2(50, 150)
+waitTime = 0.8
+
+[node name="FadeIn10" parent="." instance=ExtResource("1_7p0l1")]
+position = Vector2(758, 538)
+rotation = -2.37955
+scale = Vector2(50, 150)
+waitTime = 0.7
+
+[node name="FadeIn11" parent="." instance=ExtResource("1_7p0l1")]
+position = Vector2(1049, 533)
+rotation = -0.814593
+scale = Vector2(50, 150)
+waitTime = 0.6

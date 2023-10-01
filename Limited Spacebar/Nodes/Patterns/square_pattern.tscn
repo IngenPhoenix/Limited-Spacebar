@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=3 uid="uid://beqfnpfmwqm6g"]
+
+[ext_resource type="Script" path="res://Nodes/Patterns/pattern.gd" id="1_cy7k7"]
+[ext_resource type="PackedScene" uid="uid://dnd7k4crilmp" path="res://Nodes/fade_in.tscn" id="1_e2h55"]
+
+[node name="SquarePattern" type="Node2D"]
+script = ExtResource("1_cy7k7")
+
+[node name="FadeIn" parent="." instance=ExtResource("1_e2h55")]
+position = Vector2(280, 322)
+scale = Vector2(50, 200)
+waitTime = 1.0
+
+[node name="FadeIn2" parent="." instance=ExtResource("1_e2h55")]
+position = Vector2(842, 330)
+scale = Vector2(50, 200)
+waitTime = 1.0
+
+[node name="FadeIn3" parent="." instance=ExtResource("1_e2h55")]
+position = Vector2(560, 98)
+rotation = 1.5708
+scale = Vector2(50, 400)
+waitTime = 0.75
+
+[node name="FadeIn4" parent="." instance=ExtResource("1_e2h55")]
+position = Vector2(568, 542)
+rotation = 1.5708
+scale = Vector2(50, 400)
+waitTime = 0.75

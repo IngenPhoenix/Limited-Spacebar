@@ -1,0 +1,163 @@
+[gd_scene load_steps=7 format=3 uid="uid://dg2aig7yq5on7"]
+
+[ext_resource type="Script" path="res://Nodes/UI/GameUI/start_screen.gd" id="1_5xmb8"]
+[ext_resource type="Texture2D" uid="uid://dcypytovgeu8s" path="res://Sprites/Square.png" id="1_gvuii"]
+[ext_resource type="PackedScene" uid="uid://2sdjfp63irmu" path="res://Nodes/player.tscn" id="2_okoo6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iq65q"]
+size = Vector2(792, 1656)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_13w5s"]
+size = Vector2(1342, 473.25)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_518b4"]
+size = Vector2(78, 78)
+
+[node name="StartScreen" type="Node2D"]
+script = ExtResource("1_5xmb8")
+
+[node name="Background" type="Sprite2D" parent="."]
+process_mode = 1
+modulate = Color(0.109804, 0.109804, 0.109804, 1)
+z_index = -15
+position = Vector2(575.75, 323.75)
+scale = Vector2(1326.5, 769.5)
+texture = ExtResource("1_gvuii")
+
+[node name="Player" parent="." instance=ExtResource("2_okoo6")]
+position = Vector2(538, 327)
+
+[node name="Borders" type="Node2D" parent="."]
+visible = false
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Borders"]
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/StaticBody2D"]
+position = Vector2(-394, 310)
+shape = SubResource("RectangleShape2D_iq65q")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="Borders"]
+position = Vector2(1174, 0)
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/StaticBody2D2"]
+position = Vector2(376, 302)
+shape = SubResource("RectangleShape2D_iq65q")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="Borders"]
+position = Vector2(700, -57)
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/StaticBody2D3"]
+position = Vector2(-127, -181)
+shape = SubResource("RectangleShape2D_13w5s")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Borders/StaticBody2D3"]
+position = Vector2(-129, 944)
+shape = SubResource("RectangleShape2D_13w5s")
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1150.0
+offset_bottom = 650.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PlayInfo" type="Label" parent="UI"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -164.0
+offset_top = -191.0
+offset_right = 161.0
+offset_bottom = -95.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 48
+text = "To play, go inside the
+green box."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Info" type="Label" parent="UI"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 143.0
+offset_top = 111.0
+offset_right = 574.0
+offset_bottom = 321.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 48
+text = "WASD/ Arrow Keys 
+to move
+Space to dash"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Info2" type="Label" parent="UI"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -256.0
+offset_top = -368.0
+offset_right = 229.0
+offset_bottom = -158.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 48
+text = "Avoid blue lasers!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Info3" type="Label" parent="UI"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -574.0
+offset_top = 138.0
+offset_right = -57.0
+offset_bottom = 348.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 48
+text = "Go inside green circles
+for addition points!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PlayArea" type="Area2D" parent="UI"]
+z_index = -1
+collision_layer = 6
+
+[node name="Sprite2D" type="Sprite2D" parent="UI/PlayArea"]
+modulate = Color(0, 1, 0, 1)
+position = Vector2(791, 276)
+scale = Vector2(100, 100)
+texture = ExtResource("1_gvuii")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="UI/PlayArea"]
+position = Vector2(791, 276)
+shape = SubResource("RectangleShape2D_518b4")
+
+[connection signal="area_entered" from="UI/PlayArea" to="." method="_on_play_area_area_entered"]
+[connection signal="body_entered" from="UI/PlayArea" to="." method="_on_play_area_body_entered"]

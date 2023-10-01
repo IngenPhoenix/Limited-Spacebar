@@ -1,0 +1,52 @@
+[gd_scene load_steps=3 format=3 uid="uid://ccbd6j6mx3a8k"]
+
+[ext_resource type="Script" path="res://ShooterNode.gd" id="1_2luxn"]
+[ext_resource type="PackedScene" uid="uid://crl88chvpgcm1" path="res://Nodes/Shooters/shooter.tscn" id="2_itrkl"]
+
+[node name="ShooterTL" type="Node2D"]
+script = ExtResource("1_2luxn")
+
+[node name="Shooter" parent="." instance=ExtResource("2_itrkl")]
+position = Vector2(2, 0)
+shootDelay = 0.5
+
+[node name="TravelPos" parent="Shooter" index="2"]
+position = Vector2(88.9999, -158.351)
+
+[node name="Turret" parent="Shooter" index="3"]
+rotation = -1.5708
+
+[node name="Shooter4" parent="." instance=ExtResource("2_itrkl")]
+position = Vector2(2, 642)
+shootDelay = 0.5
+
+[node name="TravelPos" parent="Shooter4" index="2"]
+position = Vector2(-78, -158.351)
+
+[node name="Turret" parent="Shooter4" index="3"]
+rotation = -1.5708
+
+[node name="Shooter2" parent="." instance=ExtResource("2_itrkl")]
+position = Vector2(1156, 0)
+shootDelay = 0.5
+
+[node name="TravelPos" parent="Shooter2" index="2"]
+position = Vector2(-104, -158.351)
+
+[node name="Turret" parent="Shooter2" index="3"]
+rotation = -1.5708
+
+[node name="Shooter3" parent="." instance=ExtResource("2_itrkl")]
+position = Vector2(1156, 639)
+shootDelay = 0.5
+
+[node name="TravelPos" parent="Shooter3" index="2"]
+position = Vector2(74, -149)
+
+[node name="Turret" parent="Shooter3" index="3"]
+rotation = -1.5708
+
+[editable path="Shooter"]
+[editable path="Shooter4"]
+[editable path="Shooter2"]
+[editable path="Shooter3"]

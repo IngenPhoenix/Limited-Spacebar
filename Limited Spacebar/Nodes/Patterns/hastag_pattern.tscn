@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=3 uid="uid://chp3tcxw761a6"]
+
+[ext_resource type="PackedScene" uid="uid://dnd7k4crilmp" path="res://Nodes/fade_in.tscn" id="1_6apyb"]
+[ext_resource type="Script" path="res://Nodes/Patterns/pattern.gd" id="1_ci6ja"]
+
+[node name="HastagPattern" type="Node2D"]
+script = ExtResource("1_ci6ja")
+
+[node name="FadeIn" parent="." instance=ExtResource("1_6apyb")]
+position = Vector2(280, 292)
+scale = Vector2(75, 500)
+waitTime = 1.0
+
+[node name="FadeIn2" parent="." instance=ExtResource("1_6apyb")]
+position = Vector2(867, 308)
+scale = Vector2(75, 500)
+waitTime = 1.0
+
+[node name="FadeIn3" parent="." instance=ExtResource("1_6apyb")]
+position = Vector2(585, 177)
+rotation = 1.5708
+scale = Vector2(75, 700)
+waitTime = 0.75
+
+[node name="FadeIn4" parent="." instance=ExtResource("1_6apyb")]
+position = Vector2(582, 489)
+rotation = 1.5708
+scale = Vector2(75, 700)
+waitTime = 0.75

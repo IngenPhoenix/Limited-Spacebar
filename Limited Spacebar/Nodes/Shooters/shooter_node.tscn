@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://d00tqye4pyrfb"]
+
+[ext_resource type="Script" path="res://ShooterNode.gd" id="1_qcads"]
+[ext_resource type="PackedScene" uid="uid://crl88chvpgcm1" path="res://Nodes/Shooters/shooter.tscn" id="2_s6ox5"]
+
+[node name="ShooterTL" type="Node2D"]
+script = ExtResource("1_qcads")
+
+[node name="Shooter" parent="." instance=ExtResource("2_s6ox5")]
+position = Vector2(1195, 0)
+shootDelay = 0.1
+
+[node name="TravelPos" parent="Shooter" index="2"]
+position = Vector2(-251, 167)
+
+[node name="Turret" parent="Shooter" index="3"]
+rotation = -1.5708
+
+[editable path="Shooter"]

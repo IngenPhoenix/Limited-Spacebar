@@ -1,0 +1,66 @@
+[gd_scene load_steps=2 format=3 uid="uid://dvdk01k2ynidv"]
+
+[ext_resource type="Script" path="res://Nodes/UI/GameUI/upgrade_select.gd" id="1_ngh66"]
+
+[node name="UpgradeSelect" type="Control"]
+process_mode = 3
+z_index = 1
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 147.0
+offset_top = 1.0
+offset_right = -151.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ngh66")
+metadata/_edit_use_anchors_ = true
+
+[node name="Speed" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -117.0
+offset_right = 146.0
+offset_bottom = 117.0
+grow_vertical = 2
+text = "Speed"
+metadata/_edit_use_anchors_ = true
+
+[node name="Dashes" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -73.0
+offset_top = -117.0
+offset_right = 73.0
+offset_bottom = 117.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Dash"
+metadata/_edit_use_anchors_ = true
+
+[node name="Health refill" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -146.0
+offset_top = -117.0
+offset_bottom = 117.0
+grow_horizontal = 0
+grow_vertical = 2
+text = "Health Refill"
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="Speed" to="." method="_on_speed_pressed"]
+[connection signal="pressed" from="Dashes" to="." method="_on_dashes_pressed"]
+[connection signal="pressed" from="Health refill" to="." method="_on_points_pressed"]
